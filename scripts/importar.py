@@ -96,6 +96,8 @@ def montar_registros(aba, df, mapa_fornecedor):
                 )
             elif aba == "pedido_compra":
                 cod = texto(r["fornecedor_id"])
+                if cod and cod not in mapa_fornecedor:
+                    raise ValueError(f"Fornecedor {cod} não existe no cadastro")
                 fornecedor_id = mapa_fornecedor.get(cod) if cod else None
                 pedida = numero(r["qtde_pedida"], None)
                 entregue = numero(r["qtde_entregue"], 0)
