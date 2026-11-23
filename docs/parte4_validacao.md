@@ -43,7 +43,7 @@ Validar com o cliente a consistência e a interpretação dos dados de vendas de
 
 A consulta foi executada no schema `integracao_dados` disponível durante a preparação. Ela retornou 14 linhas de venda em fevereiro de 2025, totalizando 173,22 unidades e R$ 14.093,17 (quantidade × valor unitário). O banco continha 20 fornecedores, 20 produtos por filial, 20 pedidos de compra, 20 entradas de mercadoria e 33 vendas no total.
 
-Também foram observados dois pedidos com `ordem_compra = 0`. Esse valor dificulta a ligação com a tabela de entradas e precisa ser confirmado com o cliente. A listagem de vendas do mês contém seis códigos de produto que não aparecem no catálogo carregado: P22, P23, P24, P25, P26 e P27. A consulta 3 identifica esses casos para análise. Esses resultados descrevem o estado atual do banco consultado, não comprovam que a importação integral da planilha foi concluída.
+Também foram observados 12 itens de pedido ainda pendentes, 18 divergências entre o campo pendente armazenado e o saldo recalculado pelas entradas, dois pedidos com `ordem_compra = 0` e duas entradas sem pedido correspondente. Não foram encontrados valores/quantidades negativos nas tabelas verificadas. Os casos de ordem zero e entradas sem pedido dificultam a ligação entre pedido e recebimento e precisam ser confirmados com o cliente. A listagem de vendas do mês contém seis códigos de produto que não aparecem no catálogo carregado: P22, P23, P24, P25, P26 e P27. A consulta 3 identifica esses casos para análise. Esses resultados descrevem o estado atual do banco consultado, não comprovam que a importação integral da planilha foi concluída.
 
 ## 5. Erros e inconsistências a investigar
 
