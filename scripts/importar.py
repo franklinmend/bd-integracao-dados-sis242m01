@@ -52,6 +52,9 @@ def numero(v, default=None, tipo=float):
 def data_sql(v):
     if vazio(v):
         return None
+    if isinstance(v, (int, float)) and not isinstance(v, bool):
+        dt = pd.Timestamp("1899-12-30") + pd.to_timedelta(v, unit="D")
+        return dt.date()
     dt = pd.to_datetime(v, errors="raise", dayfirst=True)
     return dt.date()
 
